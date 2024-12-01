@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0F7AF642CFCCB040004EF50 /* DocumentAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F7AF632CFCCB040004EF50 /* DocumentAnalysisViewController.swift */; };
 		FB5897412CF9C87200752C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5897402CF9C87200752C12 /* AppDelegate.swift */; };
 		FB5897432CF9C87200752C12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5897422CF9C87200752C12 /* SceneDelegate.swift */; };
 		FB5897452CF9C87200752C12 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5897442CF9C87200752C12 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D0F7AF632CFCCB040004EF50 /* DocumentAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentAnalysisViewController.swift; sourceTree = "<group>"; };
 		FB58973D2CF9C87200752C12 /* QuodSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuodSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB5897402CF9C87200752C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB5897422CF9C87200752C12 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		FB58973F2CF9C87200752C12 /* QuodSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				D0F7AF632CFCCB040004EF50 /* DocumentAnalysisViewController.swift */,
 				FB5897402CF9C87200752C12 /* AppDelegate.swift */,
 				FB5897422CF9C87200752C12 /* SceneDelegate.swift */,
 				FB5897442CF9C87200752C12 /* ViewController.swift */,
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F7AF642CFCCB040004EF50 /* DocumentAnalysisViewController.swift in Sources */,
 				FB5897452CF9C87200752C12 /* ViewController.swift in Sources */,
 				FB5897412CF9C87200752C12 /* AppDelegate.swift in Sources */,
 				FB5897582CF9D62000752C12 /* CheckScore.swift in Sources */,
