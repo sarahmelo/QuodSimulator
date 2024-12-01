@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qFh-Up-hbS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qFh-Up-hbS">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+=======
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+>>>>>>> Stashed changes
+=======
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+>>>>>>> Stashed changes
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,18 +20,86 @@
         <!--SIM SWAP-->
         <scene sceneID="XuW-bQ-UOG">
             <objects>
-                <viewController title="SIM SWAP" id="svW-R7-fVS" sceneMemberID="viewController">
+                <viewController title="SIM SWAP" id="svW-R7-fVS" customClass="SIMSwapViewController" customModule="QuodSimulator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9d2-E3-ZYc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xa6-dq-4Vl">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Validação de" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORN-HZ-6LX">
+                                <rect key="frame" x="16" y="114" width="334" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SIM SWAP" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBh-ck-jZP">
+                                <rect key="frame" x="16" y="168" width="176" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q83-oy-eZW">
+                                <rect key="frame" x="16" y="759.66666666666663" width="361" height="34.333333333333371"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Validar meu SIM"/>
+                                <connections>
+                                    <action selector="validateSIM:" destination="svW-R7-fVS" eventType="touchUpInside" id="SOs-Vv-Tta"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T5V-BP-gcD">
+                                <rect key="frame" x="16" y="354" width="361" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DDI + DDD + Número de Telefone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIl-4J-DHQ">
+                                <rect key="frame" x="16" y="325" width="263" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjf-Oj-usL">
+                                <rect key="frame" x="16" y="219" width="361" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Por favor, preencha os campos abaixo para validar o status do número de telefone fornecido. Este processo ajuda a identificar possíveis trocas recentes de chip e garantir a segurança de sua conta.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preencha o campo com seu número de telefone." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvZ-u7-VUr">
+                                <rect key="frame" x="16" y="396" width="361" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="a6y-da-uz9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xa6-dq-4Vl" firstAttribute="bottom" secondItem="a6y-da-uz9" secondAttribute="bottom" id="0eo-3p-NrA"/>
+                            <constraint firstItem="a6y-da-uz9" firstAttribute="trailing" secondItem="q83-oy-eZW" secondAttribute="trailing" constant="16" id="4qz-Fo-uqK"/>
+                            <constraint firstItem="q83-oy-eZW" firstAttribute="leading" secondItem="a6y-da-uz9" secondAttribute="leading" constant="16" id="5ns-Tr-Zad"/>
+                            <constraint firstItem="a6y-da-uz9" firstAttribute="bottom" secondItem="q83-oy-eZW" secondAttribute="bottom" constant="24" id="ATw-gv-Vw6"/>
+                            <constraint firstItem="xa6-dq-4Vl" firstAttribute="leading" secondItem="a6y-da-uz9" secondAttribute="leading" id="LI5-VR-O8P"/>
+                            <constraint firstItem="xa6-dq-4Vl" firstAttribute="top" secondItem="a6y-da-uz9" secondAttribute="top" id="eP8-N2-YKV"/>
+                            <constraint firstItem="xa6-dq-4Vl" firstAttribute="trailing" secondItem="a6y-da-uz9" secondAttribute="trailing" id="ws7-zg-xfy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jJ4-qv-7Al"/>
+                    <connections>
+                        <outlet property="btnValidateSIM" destination="q83-oy-eZW" id="kDq-CF-th0"/>
+                        <outlet property="lbFeedback" destination="mvZ-u7-VUr" id="VP4-Ra-Qba"/>
+                        <outlet property="tfPhoneNumber" destination="T5V-BP-gcD" id="42T-p9-XsC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1j-HI-jrt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1146" y="4"/>
+            <point key="canvasLocation" x="-1170.2290076335878" y="867.6056338028169"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

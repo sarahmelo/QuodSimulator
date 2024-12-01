@@ -16,6 +16,8 @@
 		FB58974D2CF9C87500752C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB58974C2CF9C87500752C12 /* Assets.xcassets */; };
 		FB5897502CF9C87500752C12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB58974E2CF9C87500752C12 /* LaunchScreen.storyboard */; };
 		FB5897582CF9D62000752C12 /* CheckScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5897572CF9D62000752C12 /* CheckScore.swift */; };
+		FB94C2AA2CFCD528008DB9BD /* SIMSwap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB94C2A92CFCD528008DB9BD /* SIMSwap.swift */; };
+		FB94C2AE2CFD0A49008DB9BD /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB94C2AD2CFD0A49008DB9BD /* Validators.swift */; };
 		FBF1FF8A2CFBCDB900C1FB6C /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF1FF892CFBCDB900C1FB6C /* Authentication.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		FB58974F2CF9C87500752C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB5897512CF9C87500752C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB5897572CF9D62000752C12 /* CheckScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckScore.swift; sourceTree = "<group>"; };
+		FB94C2A92CFCD528008DB9BD /* SIMSwap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIMSwap.swift; sourceTree = "<group>"; };
+		FB94C2AD2CFD0A49008DB9BD /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		FBF1FF892CFBCDB900C1FB6C /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,6 +52,7 @@
 		FB5897342CF9C87200752C12 = {
 			isa = PBXGroup;
 			children = (
+				FB94C2AD2CFD0A49008DB9BD /* Validators.swift */,
 				FB58973F2CF9C87200752C12 /* QuodSimulator */,
 				FB58973E2CF9C87200752C12 /* Products */,
 			);
@@ -69,6 +74,7 @@
 				FB5897422CF9C87200752C12 /* SceneDelegate.swift */,
 				FB5897442CF9C87200752C12 /* ViewController.swift */,
 				FB5897462CF9C87200752C12 /* Main.storyboard */,
+				FB94C2A92CFCD528008DB9BD /* SIMSwap.swift */,
 				FBF1FF892CFBCDB900C1FB6C /* Authentication.swift */,
 				FB5897572CF9D62000752C12 /* CheckScore.swift */,
 				FB58974C2CF9C87500752C12 /* Assets.xcassets */,
@@ -156,8 +162,10 @@
 			files = (
 				D0F7AF642CFCCB040004EF50 /* DocumentAnalysisViewController.swift in Sources */,
 				FB5897452CF9C87200752C12 /* ViewController.swift in Sources */,
+				FB94C2AA2CFCD528008DB9BD /* SIMSwap.swift in Sources */,
 				FB5897412CF9C87200752C12 /* AppDelegate.swift in Sources */,
 				FB5897582CF9D62000752C12 /* CheckScore.swift in Sources */,
+				FB94C2AE2CFD0A49008DB9BD /* Validators.swift in Sources */,
 				FB5897432CF9C87200752C12 /* SceneDelegate.swift in Sources */,
 				FB58974B2CF9C87200752C12 /* QuodSimulator.xcdatamodeld in Sources */,
 				FBF1FF8A2CFBCDB900C1FB6C /* Authentication.swift in Sources */,
