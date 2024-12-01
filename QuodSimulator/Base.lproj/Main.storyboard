@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qFh-Up-hbS">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,19 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xa6-dq-4Vl">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
-                            </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Validação de" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORN-HZ-6LX">
-                                <rect key="frame" x="16" y="114" width="334" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Validação de" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORN-HZ-6LX">
+                                <rect key="frame" x="16" y="115" width="331" height="43"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SIM SWAP" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBh-ck-jZP">
-                                <rect key="frame" x="16" y="168" width="176" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIM SWAP" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBh-ck-jZP">
+                                <rect key="frame" x="16" y="160" width="361" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,30 +36,26 @@
                                     <action selector="validateSIM:" destination="svW-R7-fVS" eventType="touchUpInside" id="SOs-Vv-Tta"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T5V-BP-gcD">
-                                <rect key="frame" x="16" y="354" width="361" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DDI + DDD + Número de Telefone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIl-4J-DHQ">
-                                <rect key="frame" x="16" y="325" width="263" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjf-Oj-usL">
-                                <rect key="frame" x="16" y="219" width="361" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjf-Oj-usL">
+                                <rect key="frame" x="16" y="219" width="361" height="67"/>
                                 <string key="text">Por favor, preencha os campos abaixo para validar o status do número de telefone fornecido. Este processo ajuda a identificar possíveis trocas recentes de chip e garantir a segurança de sua conta.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preencha o campo com seu número de telefone." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvZ-u7-VUr">
-                                <rect key="frame" x="16" y="396" width="361" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T5V-BP-gcD">
+                                <rect key="frame" x="16" y="339" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DDI + DDD + Número de Telefone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIl-4J-DHQ">
+                                <rect key="frame" x="16" y="310" width="361" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preencha o campo com seu número de telefone." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvZ-u7-VUr">
+                                <rect key="frame" x="16" y="381" width="361" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -73,13 +64,28 @@
                         <viewLayoutGuide key="safeArea" id="a6y-da-uz9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xa6-dq-4Vl" firstAttribute="bottom" secondItem="a6y-da-uz9" secondAttribute="bottom" id="0eo-3p-NrA"/>
+                            <constraint firstItem="Hjf-Oj-usL" firstAttribute="top" secondItem="yBh-ck-jZP" secondAttribute="bottom" constant="16" id="2r5-lh-oGw"/>
                             <constraint firstItem="a6y-da-uz9" firstAttribute="trailing" secondItem="q83-oy-eZW" secondAttribute="trailing" constant="16" id="4qz-Fo-uqK"/>
                             <constraint firstItem="q83-oy-eZW" firstAttribute="leading" secondItem="a6y-da-uz9" secondAttribute="leading" constant="16" id="5ns-Tr-Zad"/>
+                            <constraint firstItem="a6y-da-uz9" firstAttribute="trailing" secondItem="T5V-BP-gcD" secondAttribute="trailing" constant="16" id="6CK-Un-HhO"/>
+                            <constraint firstItem="a6y-da-uz9" firstAttribute="trailing" secondItem="tIl-4J-DHQ" secondAttribute="trailing" constant="16" id="87H-Gz-nZ1"/>
                             <constraint firstItem="a6y-da-uz9" firstAttribute="bottom" secondItem="q83-oy-eZW" secondAttribute="bottom" constant="24" id="ATw-gv-Vw6"/>
-                            <constraint firstItem="xa6-dq-4Vl" firstAttribute="leading" secondItem="a6y-da-uz9" secondAttribute="leading" id="LI5-VR-O8P"/>
-                            <constraint firstItem="xa6-dq-4Vl" firstAttribute="top" secondItem="a6y-da-uz9" secondAttribute="top" id="eP8-N2-YKV"/>
-                            <constraint firstItem="xa6-dq-4Vl" firstAttribute="trailing" secondItem="a6y-da-uz9" secondAttribute="trailing" id="ws7-zg-xfy"/>
+                            <constraint firstItem="yBh-ck-jZP" firstAttribute="top" secondItem="ORN-HZ-6LX" secondAttribute="bottom" constant="2" id="IPk-Zw-2Jq"/>
+                            <constraint firstItem="ORN-HZ-6LX" firstAttribute="top" secondItem="a6y-da-uz9" secondAttribute="top" constant="12" id="Kgl-xs-F0S"/>
+                            <constraint firstItem="a6y-da-uz9" firstAttribute="trailing" secondItem="ORN-HZ-6LX" secondAttribute="trailing" constant="46" id="L4E-ko-lte"/>
+                            <constraint firstItem="T5V-BP-gcD" firstAttribute="leading" secondItem="a6y-da-uz9" secondAttribute="leading" constant="16" id="NgK-nq-sdZ"/>
+                            <constraint firstItem="a6y-da-uz9" firstAttribute="trailing" secondItem="mvZ-u7-VUr" secondAttribute="trailing" constant="16" id="Nhn-mA-wvb"/>
+                            <constraint firstItem="a6y-da-uz9" firstAttribute="trailing" secondItem="yBh-ck-jZP" secondAttribute="trailing" constant="16" id="UNu-E8-tS4"/>
+                            <constraint firstItem="T5V-BP-gcD" firstAttribute="top" secondItem="tIl-4J-DHQ" secondAttribute="bottom" constant="8" id="Ur9-Eb-csv"/>
+                            <constraint firstItem="Hjf-Oj-usL" firstAttribute="top" secondItem="yBh-ck-jZP" secondAttribute="bottom" constant="16" id="W13-uo-wO5"/>
+                            <constraint firstItem="mvZ-u7-VUr" firstAttribute="top" secondItem="T5V-BP-gcD" secondAttribute="bottom" constant="8" id="cVY-qa-ohO"/>
+                            <constraint firstItem="mvZ-u7-VUr" firstAttribute="leading" secondItem="a6y-da-uz9" secondAttribute="leading" constant="16" id="fYX-F0-PlS"/>
+                            <constraint firstItem="tIl-4J-DHQ" firstAttribute="top" secondItem="Hjf-Oj-usL" secondAttribute="bottom" constant="24" id="fZv-jj-DLx"/>
+                            <constraint firstItem="yBh-ck-jZP" firstAttribute="leading" secondItem="a6y-da-uz9" secondAttribute="leading" constant="16" id="hzb-yr-u6D"/>
+                            <constraint firstItem="ORN-HZ-6LX" firstAttribute="leading" secondItem="a6y-da-uz9" secondAttribute="leading" constant="16" id="qav-Ne-HjW"/>
+                            <constraint firstItem="Hjf-Oj-usL" firstAttribute="leading" secondItem="a6y-da-uz9" secondAttribute="leading" constant="16" id="rDW-jl-8Ha"/>
+                            <constraint firstItem="tIl-4J-DHQ" firstAttribute="leading" secondItem="a6y-da-uz9" secondAttribute="leading" constant="16" id="s1N-bJ-U1a"/>
+                            <constraint firstItem="a6y-da-uz9" firstAttribute="trailing" secondItem="Hjf-Oj-usL" secondAttribute="trailing" constant="16" id="vVx-FF-Qb0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jJ4-qv-7Al"/>
@@ -626,7 +632,7 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
