@@ -49,6 +49,7 @@ class Authentication: UIViewController, UITextFieldDelegate {
     public var isValidTFDDI = false;
     public var isValidTFDDD = false;
     public var isValidTFTelephone = false;
+    public var positionYCurrentFieldFocused = 0;
 
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -62,15 +63,15 @@ class Authentication: UIViewController, UITextFieldDelegate {
         
         [tfCPF, tfDDD, tfDDI, tfName, tfTelephone, tfEmailAdress].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
         
-        NotificationCenter.default.addObserver(self, selector:
- #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification,
- object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func editingChanged(_ textField: UITextField) {
         print("textFieldDidEndEditing called for:", textField.text!)
 
+        let textFieldPositionInWindow = textField.convert(textField.bounds.origin, to: nil)
+        positionYCurrentFieldFocused = Int(textFieldPositionInWindow.y)
         
         if isValidTFCPF && isValidTFDDD && isValidTFDDI && isValidTfName && isValidTfEmail && isValidTFTelephone {
             submitButton.isEnabled = true;
@@ -79,24 +80,18 @@ class Authentication: UIViewController, UITextFieldDelegate {
         }
     }
 
-
-    
-    @objc func keyboardWillShow(notification: NSNotification)
- {
-     print("teclado aberto")
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
- {
-            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
-            scrollView.scrollIndicatorInsets = scrollView.contentInset
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
         }
     }
 
-    @objc
- func keyboardWillHide(notification: NSNotification) {
-     print("teclado fechou")
-        scrollView.contentInset = .zero
-        scrollView.scrollIndicatorInsets = .zero
-
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     func keyboardTypeSettings() {
@@ -190,7 +185,7 @@ class Authentication: UIViewController, UITextFieldDelegate {
             name: tfName.text!,
             cpf: tfCPF.text!,
             email: tfEmailAdress.text!,
-            telephone: tfTelephone.text!
+            telephone: tfDDI.text! + tfDDD.text! + tfTelephone.text!
         );
         
         data.append(person);
@@ -273,4 +268,19 @@ class Authentication: UIViewController, UITextFieldDelegate {
     func isValidTelephone(phoneNumber: String) -> Bool {
         return phoneNumber.count == 9 && validateIfHasOnlyNumbers(cpf: phoneNumber)
     }
+}
+
+extension UIResponder {
+    private static weak var _currentFirstResponder: UIResponder?
+
+    static func findCurrentFirstResponder() -> UIResponder? {
+        _currentFirstResponder = nil
+        UIApplication.shared.sendAction(#selector(_captureFirstResponder), to: nil, from: nil, for: nil)
+        return _currentFirstResponder
+    }
+
+    @objc private func _captureFirstResponder() {
+        UIResponder._currentFirstResponder = self
+    }
+
 }
