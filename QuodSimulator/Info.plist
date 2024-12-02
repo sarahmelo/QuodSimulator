@@ -6,6 +6,12 @@
 	<string></string>
     <key>NSFaceIDUsageDescription</key>
     <string>$(PRODUCT_NAME) Authentication with TouchId or FaceID</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Precisamos de sua localização para melhorar sua experiência.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Precisamos de sua localização mesmo quando o app estiver em segundo plano.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Precisamos de sua localização para fornecer funcionalidades avançadas.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
