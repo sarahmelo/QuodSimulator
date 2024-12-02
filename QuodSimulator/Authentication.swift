@@ -16,22 +16,21 @@ import Foundation
 import UIKit
 
 class Authentication: UIViewController, UITextFieldDelegate {
-    
-    var data: [Person] = [
-        Person(name: "Sarah Melo", cpf: "123.456.789-00", email: "sarah@email.com", telephone: "(11) 98765-4321"),
-    ]
+    var data: [Person] = []
     
     let green = UIColor(red: 0x5e / 255.0, green: 0x91 / 255.0, blue: 0x88 / 255.0, alpha: 1.0);
     let red = UIColor(red: 0x77 / 255.0, green: 0x18 / 255.0, blue: 0x1e / 255.0, alpha: 1.0);
 
-    @IBOutlet weak var tfEmailAdress: UITextField!
+    @IBOutlet weak var tfAddres: UITextField!
     @IBOutlet weak var tfName: UITextField!
     @IBOutlet weak var tfCPF: UITextField!
     @IBOutlet weak var tfTelephone: UITextField!
     @IBOutlet weak var tfDDI: UITextField!
     @IBOutlet weak var tfDDD: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var tfComplemento: UITextField!
     
+    @IBOutlet weak var tfNumber: UITextField!
     @IBOutlet weak var lbDDI: UILabel!
     @IBOutlet weak var lbOnlyNumberFeedback: UILabel!
     @IBOutlet weak var lbDDD: UILabel!
@@ -41,14 +40,18 @@ class Authentication: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lbFeedbackOnlyNumberCPF: UILabel!
     @IBOutlet weak var lbEmailFeedback: UILabel!
     @IBOutlet weak var lbFeedbackCPF: UILabel!
+    @IBOutlet weak var lbAddress: UILabel!
     
-    public var isValidTfEmail = false;
     public var isValidTfName = false;
     public var isValidTFCPF = false;
     public var isValidTFDDI = false;
     public var isValidTFDDD = false;
     public var isValidTFTelephone = false;
+    public var isValidTfCep = false;
+    public var isValidTfNumber = false;
+    public var isValidTfComplement = false;
     public var positionYCurrentFieldFocused = 0;
+    var debounceTimer: Timer?
 
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -60,19 +63,70 @@ class Authentication: UIViewController, UITextFieldDelegate {
         keyboardTypeSettings();
         addEventListeners();
         
-        [tfCPF, tfDDD, tfDDI, tfName, tfTelephone, tfEmailAdress].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+        [tfCPF, tfDDD, tfDDI, tfName, tfTelephone, tfNumber, tfComplemento].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+        
+        tfAddres.addTarget(self, action: #selector(cepEditingChanged(_:)), for: .editingChanged)
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func editingChanged(_ textField: UITextField) {
-        print("textFieldDidEndEditing called for:", textField.text!)
+            let textFieldPositionInWindow = textField.convert(textField.bounds.origin, to: nil)
+            positionYCurrentFieldFocused = Int(textFieldPositionInWindow.y)
+            
+            if isValidTFCPF && isValidTFDDD && isValidTFDDI && isValidTfName && isValidTfCep && isValidTfNumber && isValidTFTelephone {
+                
+                submitButton.isEnabled = true;
+            } else {
+                submitButton.isEnabled = false;
+            }
+        }
+    
+    @objc func cepEditingChanged(_ textField: UITextField) {
+        debounceTimer?.invalidate()
+                
+        debounceTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { [weak self] _ in
+                    guard let cep = textField.text, !cep.isEmpty else { return }
+                    
+            self?.fetchViaCepData(for: cep) { [self] result in
+                switch result {
+                case .success(let json):
+                    if let localidade = json["localidade"] as? String,
+                       let uf = json["uf"] as? String,
+                       let logradouro = json["logradouro"] as? String,
+                       let bairro = json["bairro"] as? String {
+                        
+                        print("oiiii")
+                        self?.isValidTfCep = true;
 
-        let textFieldPositionInWindow = textField.convert(textField.bounds.origin, to: nil)
-        positionYCurrentFieldFocused = Int(textFieldPositionInWindow.y)
+                        DispatchQueue.main.async { [weak self] in
+                            self?.lbAddress.text = "\(localidade), \(uf) - \(logradouro), \(bairro)"
+                        }
+                        
+                        
+                    } else {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.isValidTfCep = false;
+                            self?.lbAddress.text = "CEP inválido"
+                        }
+                    }
+                case .failure(let error):
+                    print("Erro: \(error.localizedDescription)")
+                    DispatchQueue.main.async { [weak self] in
+                        self?.isValidTfCep = false;
+                        self?.lbAddress.text = "Erro ao buscar endereço"
+                    }
+                }
+
+
+                    }
+                })
         
-        if isValidTFCPF && isValidTFDDD && isValidTFDDI && isValidTfName && isValidTfEmail && isValidTFTelephone {
+        print("idValidCeP : ", isValidTFCPF, isValidTFDDD, isValidTFDDI, isValidTfName, isValidTfCep, isValidTfNumber, isValidTFTelephone, isValidTfComplement)
+        
+        if isValidTFCPF && isValidTFDDD && isValidTFDDI && isValidTfName && isValidTfCep && isValidTfNumber && isValidTFTelephone && isValidTfComplement {
             submitButton.isEnabled = true;
         } else {
             submitButton.isEnabled = false;
@@ -83,14 +137,46 @@ class Authentication: UIViewController, UITextFieldDelegate {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let bottomInset = keyboardSize.height
             
-            // Assuming `scrollView` is your UIScrollView
             scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomInset, right: 0)
             scrollView.scrollIndicatorInsets = scrollView.contentInset
         }
     }
+    
+    func fetchViaCepData(for cep: String, completion: @escaping (Result<[String: Any], Error>) -> Void) {
+        let urlString = "https://viacep.com.br/ws/\(cep)/json/"
+        
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NSError(domain: "InvalidURL", code: 400, userInfo: [NSLocalizedDescriptionKey: "URL inválida"])))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                let error = NSError(domain: "NoData", code: 404, userInfo: [NSLocalizedDescriptionKey: "Dados não recebidos"])
+                completion(.failure(error))
+                return
+            }
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    completion(.success(json))
+                } else {
+                    let error = NSError(domain: "InvalidJSON", code: 500, userInfo: [NSLocalizedDescriptionKey: "Formato de JSON inválido"])
+                    completion(.failure(error))
+                }
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
+    }
 
     @objc func keyboardWillHide(notification: NSNotification) {
-        // Reset the insets
         scrollView.contentInset = .zero
         scrollView.scrollIndicatorInsets = .zero
     }
@@ -103,12 +189,13 @@ class Authentication: UIViewController, UITextFieldDelegate {
     }
     
     func addEventListeners() {
-        tfEmailAdress.addTarget(self, action: #selector(checkEmailAddress(_:)), for: .editingChanged)
         tfCPF.addTarget(self, action: #selector(checkCPF(_:)), for: .editingChanged)
         tfName.addTarget(self, action: #selector(checkName(_:)), for: .editingChanged)
         tfDDI.addTarget(self, action: #selector(checkDDI(_:)), for: .editingChanged)
         tfDDD.addTarget(self, action: #selector(checkDDD(_:)), for: .editingChanged)
         tfTelephone.addTarget(self, action: #selector(checkTelephone(_:)), for: .editingChanged)
+        tfNumber.addTarget(self, action: #selector(checkNumber(_:)), for: .editingChanged)
+        tfComplemento.addTarget(self, action: #selector(checkComplement(_:)), for: .editingChanged)
     }
     
     @IBAction func checkName(_ sender: UITextField) {
@@ -120,29 +207,32 @@ class Authentication: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func checkEmailAddress(_ sender: UITextField) {
-        let text = sender.text!
-
-        let isExistingEmail = isExistingEmail(email: text, in: data)
-                
-        if !isExistingEmail && isValidEmail(email: text) {
-            lbEmailFeedback.textColor = green
-            isValidTfEmail = true;
-        } else {
-            lbEmailFeedback.textColor = red
-            isValidTfEmail = false;
-        }
-    }
-    
     @IBAction func checkCPF(_ sender: UITextField) {
         let text = sender.text!
 
         if isValidCPF(cpf: text) &&
             validateIfHasOnlyNumbers(cpf: sender.text!) {
             isValidTFCPF = true;
+            return
         } else {
             isValidTFCPF = false;
         }
+    }
+    
+    @IBAction func checkNumber(_ sender: UITextField) {
+        if (sender.text!.count != 0) {
+            isValidTfNumber = true
+            return
+        }
+        isValidTfNumber = false
+    }
+    
+    @IBAction func checkComplement(_ sender: UITextField) {
+        if (sender.text!.count != 0) {
+            isValidTfComplement = true
+            return
+        }
+        isValidTfComplement = false
     }
     
     @IBAction func checkDDI(_ sender: UITextField) {
@@ -185,12 +275,12 @@ class Authentication: UIViewController, UITextFieldDelegate {
         let person = Person(
             name: tfName.text!,
             cpf: tfCPF.text!,
-            email: tfEmailAdress.text!,
+            email: tfAddres.text! + lbAddress.text! + tfComplemento.text!,
             telephone: tfDDI.text! + tfDDD.text! + tfTelephone.text!
         );
         
         data.append(person);
-        
+                
         let alert = UIAlertController(title: "Sucesso", message: "Usuário registrado!", preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -267,7 +357,7 @@ class Authentication: UIViewController, UITextFieldDelegate {
     }
     
     func isValidTelephone(phoneNumber: String) -> Bool {
-        return phoneNumber.count == 9 && validateIfHasOnlyNumbers(cpf: phoneNumber)
+        return phoneNumber.count == 9 && Validators.hasOnlyNumbers(text: phoneNumber)
     }
 }
 
