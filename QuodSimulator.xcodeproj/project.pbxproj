@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0E4873D2CFD2BAF0078D2D1 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E4873C2CFD2BAF0078D2D1 /* AuthenticationViewController.swift */; };
 		D0F7AF642CFCCB040004EF50 /* DocumentAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F7AF632CFCCB040004EF50 /* DocumentAnalysisViewController.swift */; };
 		FB5897412CF9C87200752C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5897402CF9C87200752C12 /* AppDelegate.swift */; };
 		FB5897432CF9C87200752C12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5897422CF9C87200752C12 /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D0E4873C2CFD2BAF0078D2D1 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		D0F7AF632CFCCB040004EF50 /* DocumentAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentAnalysisViewController.swift; sourceTree = "<group>"; };
 		FB58973D2CF9C87200752C12 /* QuodSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuodSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB5897402CF9C87200752C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			children = (
 				D0F7AF632CFCCB040004EF50 /* DocumentAnalysisViewController.swift */,
 				FB5897402CF9C87200752C12 /* AppDelegate.swift */,
+				D0E4873C2CFD2BAF0078D2D1 /* AuthenticationViewController.swift */,
 				FB5897422CF9C87200752C12 /* SceneDelegate.swift */,
 				FB5897442CF9C87200752C12 /* ViewController.swift */,
 				FB5897462CF9C87200752C12 /* Main.storyboard */,
@@ -162,6 +165,7 @@
 			files = (
 				D0F7AF642CFCCB040004EF50 /* DocumentAnalysisViewController.swift in Sources */,
 				FB5897452CF9C87200752C12 /* ViewController.swift in Sources */,
+				D0E4873D2CFD2BAF0078D2D1 /* AuthenticationViewController.swift in Sources */,
 				FB94C2AA2CFCD528008DB9BD /* SIMSwap.swift in Sources */,
 				FB5897412CF9C87200752C12 /* AppDelegate.swift in Sources */,
 				FB5897582CF9D62000752C12 /* CheckScore.swift in Sources */,
